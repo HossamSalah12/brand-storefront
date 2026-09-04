@@ -1,0 +1,56 @@
+/*
+  Design tokens for the storefront.
+  Palette, type, and spacing are defined once here — components
+  should reference these variables/Tailwind theme values rather
+  than hard-coding hex codes or pixel values.
+*/
+
+:root {
+  /* Color — luxury navy / ivory / champagne-gold identity */
+  --color-ink: #0f1626; /* deep navy, near-black */
+  --color-bone: #faf7f1; /* warm ivory */
+  --color-stone: #9c9284; /* muted taupe (secondary text) */
+  --color-stone-light: #e7ddcb; /* soft beige (borders, card fills) */
+  --color-clay: #b3894f; /* champagne gold accent — sparingly, per design system rules */
+  --color-moss: #5b6355; /* success / in-stock, unchanged */
+  --color-navy: #0f1626; /* alias, used for the announcement bar / footer */
+
+  /* Active typeface per locale — set below */
+  --font-display: var(--font-amiri);
+  --font-body: var(--font-ibm-arabic);
+
+  /* Type scale (fluid, mobile-first) */
+  --text-display-xl: clamp(2.5rem, 6vw, 5rem);
+  --text-display-lg: clamp(2rem, 4vw, 3.25rem);
+  --text-display-md: clamp(1.5rem, 2.5vw, 2.25rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+
+  /* Spacing rhythm */
+  --space-section: clamp(4rem, 10vw, 8rem);
+  --space-block: clamp(2rem, 5vw, 4rem);
+
+  /* Motion */
+  --ease-editorial: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+}
+
+/* English uses a different, equally considered pairing: Fraunces (a warm
+   characterful serif) for display, Work Sans for body — kept distinct
+   from the Arabic pairing rather than falling back to system fonts. */
+:root[data-locale="en"] {
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-worksans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
